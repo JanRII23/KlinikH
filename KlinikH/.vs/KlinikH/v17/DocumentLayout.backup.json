@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Users\\Jan Rejas II\\GitHub\\KlinikH\\KlinikH\\",
+  "WorkspaceRootPath": "D:\\Users\\Jan Rejas II\\GitHub\\KlinikHRepo\\KlinikH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{505FA2F5-61CA-4F74-83E4-40A6DDF33D99}|KlinikH\\KlinikH.csproj|d:\\users\\jan rejas ii\\github\\klinikh\\klinikh\\klinikh\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{505FA2F5-61CA-4F74-83E4-40A6DDF33D99}|KlinikH\\KlinikH.csproj|solutionrelative:klinikh\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Users\\Jan Rejas II\\GitHub\\KlinikHRepo\\KlinikH\\KlinikH\\Migrations\\20241002011407_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KlinikH\\Migrations\\20241002011407_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\Users\\Jan Rejas II\\GitHub\\KlinikH\\KlinikH\\KlinikH\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "KlinikH\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\Users\\Jan Rejas II\\GitHub\\KlinikH\\KlinikH\\KlinikH\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "KlinikH\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
+              "Title": "20241002011407_InitialCreate.cs",
+              "DocumentMoniker": "D:\\Users\\Jan Rejas II\\GitHub\\KlinikHRepo\\KlinikH\\KlinikH\\Migrations\\20241002011407_InitialCreate.cs",
+              "RelativeDocumentMoniker": "KlinikH\\Migrations\\20241002011407_InitialCreate.cs",
+              "ToolTip": "D:\\Users\\Jan Rejas II\\GitHub\\KlinikHRepo\\KlinikH\\KlinikH\\Migrations\\20241002011407_InitialCreate.cs",
+              "RelativeToolTip": "KlinikH\\Migrations\\20241002011407_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T02:02:49.296Z",
+              "WhenOpened": "2024-10-02T01:14:07.595Z",
               "EditorCaption": ""
             }
           ]

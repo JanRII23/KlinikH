@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\KlinikH",
+    "\\KlinikH\\KlinikH",
+    "\\KlinikH\\KlinikH\\Views",
+    "\\KlinikH\\KlinikH\\Views\\Shared"
   ],
+  "SelectedNode": "\\KlinikH\\KlinikH\\Views\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using KlinikH.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<KlinikHContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("KlinikHContext") ?? throw new InvalidOperationException("Connection string 'KlinikHContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -19,6 +24,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+//TODO: below is what defines the routing if the action is not supplied it default to the index action at least setup here
 
 app.MapControllerRoute(
     name: "default",
