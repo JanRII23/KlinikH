@@ -48,6 +48,8 @@ namespace KlinikH.Controllers
             return View();
         }
 
+        //NOTE: it is actually possible to have one action to be mapped to either add/edit to navigate to the page
+
         // POST: Category/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
