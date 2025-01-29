@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace KlinikH.Controllers
 {
-    public class HomeController : Controller
+    public class HomeControllerTest : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeControllerTest> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeControllerTest(ILogger<HomeControllerTest> logger)
         {
             _logger = logger;
         }

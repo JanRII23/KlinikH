@@ -31,8 +31,8 @@
     <Folder Include="AppBundle\SecurityBundle\Models\" />
     <Folder Include="AppBundle\SecurityBundle\Views\" />
     <Folder Include="AppBundle\HomeBundle\Models\" />
-    <Folder Include="AppBundle\HomeBundle\Controllers\" />
-    <Folder Include="AppBundle\HomeBundle\Views\" />
+	<Folder Include="AppBundle\HomeBundle\Controllers\" />
+	<Folder Include="AppBundle\HomeBundle\Views\" />
   </ItemGroup>
 
 </Project>
