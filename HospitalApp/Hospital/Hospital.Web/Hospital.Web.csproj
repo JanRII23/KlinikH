@@ -5,11 +5,22 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Patient\Data\**" />
+    <Compile Remove="Areas\Patient\Models\**" />
+    <Content Remove="Areas\Patient\Data\**" />
+    <Content Remove="Areas\Patient\Models\**" />
+    <EmbeddedResource Remove="Areas\Patient\Data\**" />
+    <EmbeddedResource Remove="Areas\Patient\Models\**" />
+    <None Remove="Areas\Patient\Data\**" />
+    <None Remove="Areas\Patient\Models\**" />
+  </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.17" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.11" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,16 +29,13 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Hospital.Repositories\Hospital.Repositories.csproj" />
+	  <ProjectReference Include="..\Hospital.Utilities\Hospital.Utilities.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Areas\Admin\Controllers\" />
 	  <Folder Include="Areas\Admin\Views\" />
 	  <Folder Include="Areas\Doctor\Controllers\" />
 	  <Folder Include="Areas\Doctor\Views\" />
-	  <Folder Include="Areas\Patient\Controllers\" />
-	  <Folder Include="Areas\Patient\Data\" />
-	  <Folder Include="Areas\Patient\Models\" />
-	  <Folder Include="Areas\Patient\Views\" />
 	</ItemGroup>
 
 </Project>
