@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hospital.Models
 {
-    public class Hospital
+    public class HospitalInfo
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,6 +15,6 @@ namespace Hospital.Models
         public string PinCode { get; set; }
         public string Country { get; set; }
         public ICollection<Room> Rooms { get; set; }
-        public ICollection<Contacts> Contacts { get; set; }
+        public ICollection<Contact> Contacts { get; set; }
     }
 }
