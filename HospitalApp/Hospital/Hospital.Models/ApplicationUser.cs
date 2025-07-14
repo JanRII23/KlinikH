@@ -3,6 +3,7 @@
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,9 @@ namespace Hospital.Models
         public DateTime DOB { get; set; }
         public string Specialist { get; set; }
         public Department Department { get; set; }
+        [NotMapped]
         public ICollection<Appointment> Appointments { get; set; }
+        [NotMapped]
         public ICollection<Payroll> Payrolls { get; set; }
     }
 }
