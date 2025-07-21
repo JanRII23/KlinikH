@@ -26,7 +26,7 @@ namespace Hospital.Services
             _unitOfWork.Save();
         }
 
-        public PagedResult<HospitalInfoViewModel> GetAll(int pageNumber, int pageSize)
+        public PagedResult<HospitalInfoViewModel> GetAll(int pageNumber = 1, int pageSize = 10)
         {
 
             var vm = new HospitalInfoViewModel();
@@ -87,6 +87,17 @@ namespace Hospital.Services
         private List<HospitalInfoViewModel> ConvertModelToViewModelList(List<HospitalInfo> modelList)
         {
             return modelList.Select(x => new HospitalInfoViewModel(x)).ToList();
+        }
+
+        public List<HospitalInfoViewModel> GetAll()
+        {
+            //TODO: this needs to be returning to the view right?
+            var model = _unitOfWork.GenericRepository<HospitalInfo>().GetAll().ToList();
+            return model.Select(h => new HospitalInfoViewModel
+            {
+                Id = h.Id,
+                Name = h.Name
+            }).ToList();
         }
     }
 }
