@@ -87,7 +87,7 @@ namespace Hospital.Services
             var model = new TimingViewModel().ConvertViewModel(timing);
             var modelById = _unitOfWork.GenericRepository<Timing>().GetById(model.Id);
             modelById.Id = timing.Id;
-            modelById.DoctorId = timing.DoctorId;
+            modelById.Doctor = timing.Doctor;
             modelById.Status = timing.Status;
             modelById.Duration = timing.Duration;
             modelById.MorningShiftStartTime = timing.MorningShiftStartTime;
