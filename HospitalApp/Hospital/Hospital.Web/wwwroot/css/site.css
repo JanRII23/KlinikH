@@ -20,3 +20,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#header-container {
+    color: white;
+    background-color: #FF746C;
+}
+
+#home-header {
+    text-decoration: underline;
+}
