@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DoctorBundle\Controllers\" />
+    <Folder Include="DoctorBundle\Models\" />
+    <Folder Include="DoctorBundle\Repositories\" />
+    <Folder Include="DoctorBundle\Services\" />
+    <Folder Include="DoctorBundle\Utilities\" />
+    <Folder Include="DoctorBundle\Views\" />
+    <Folder Include="LoginBundle\Controllers\" />
+    <Folder Include="LoginBundle\Models\" />
+    <Folder Include="LoginBundle\Repositories\" />
+    <Folder Include="LoginBundle\Services\" />
+    <Folder Include="LoginBundle\Utilities\" />
+    <Folder Include="LoginBundle\Views\" />
+    <Folder Include="PatientBundle\Controllers\" />
+    <Folder Include="PatientBundle\Models\" />
+    <Folder Include="PatientBundle\Repositories\" />
+    <Folder Include="PatientBundle\Services\" />
+    <Folder Include="PatientBundle\Utilities\" />
+    <Folder Include="PatientBundle\Views\" />
+    <Folder Include="UserManagementBundle\Controllers\" />
+    <Folder Include="UserManagementBundle\Models\" />
+    <Folder Include="UserManagementBundle\Repositories\" />
+    <Folder Include="UserManagementBundle\Services\" />
+    <Folder Include="UserManagementBundle\Utilities\" />
+    <Folder Include="UserManagementBundle\Views\" />
+  </ItemGroup>
+
+</Project>

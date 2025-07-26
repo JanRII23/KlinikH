@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	
+  <ItemGroup>
+	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.17" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
+	<PrivateAssets>all</PrivateAssets>
+	<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="AdminManagementBundle\Views\" />
+    <Folder Include="AdminManagementBundle\Repositories\" />
+    <Folder Include="AdminManagementBundle\Services\" />
+    <Folder Include="AdminManagementBundle\Utilities\" />
+    <Folder Include="AdminManagementBundle\Models\" />
+    <Folder Include="AdminManagementBundle\Controllers\" />
+    <Folder Include="AdminUserBundle\Controllers\" />
+    <Folder Include="AdminUserBundle\Repositories\" />
+    <Folder Include="AdminUserBundle\Services\" />
+    <Folder Include="AdminUserBundle\Utilities\" />
+    <Folder Include="AdminUserBundle\Views\" />
+    <Folder Include="TemplateBundle\Controllers\" />
+    <Folder Include="TemplateBundle\Models\" />
+    <Folder Include="TemplateBundle\Repositories\" />
+    <Folder Include="TemplateBundle\Services\" />
+    <Folder Include="TemplateBundle\Utilities\" />
+    <Folder Include="TemplateBundle\Views\" />
+  </ItemGroup>
+
+</Project>
