@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿//using Microsoft.AspNetCore.Mvc;
 
-namespace Hospital.Admin.AdminUserBundle.Controllers
-{
-    public class AdminUserController : Controller
-    {
-    }
-}
+//namespace Hospital.Admin.AdminUserBundle.Controllers
+//{
+//    public class AdminUserController : Controller
+//    {
+//    }
+//}

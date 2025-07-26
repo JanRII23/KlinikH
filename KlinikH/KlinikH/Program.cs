@@ -1,5 +1,7 @@
-using KlinikH.Models;
-using Microsoft.EntityFrameworkCore;
+//using KlinikH.Models;
+using KlinikH.Infrastructure;
+using KlinikH.Application;
+//using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,14 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //DB injection for the migration to the application
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"))
-);
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"))
+//);
+//TODO: need to update this connection and clean up the .Web folder
+
 
 // Can actually leverage IIS Express or simply download the razor runtime package 
 
 //TODO: but this looks to break css mapping tho
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddServicesInfrastructure();
+builder.Services.AddServicesApplication();
 
 var app = builder.Build();
 

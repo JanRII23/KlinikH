@@ -22,7 +22,6 @@
     <Folder Include="AdminManagementBundle\Utilities\" />
     <Folder Include="AdminManagementBundle\Models\" />
     <Folder Include="AdminManagementBundle\Controllers\" />
-    <Folder Include="AdminUserBundle\Controllers\" />
     <Folder Include="AdminUserBundle\Repositories\" />
     <Folder Include="AdminUserBundle\Services\" />
     <Folder Include="AdminUserBundle\Utilities\" />
