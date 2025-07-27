@@ -1,14 +1,14 @@
-using KlinikH.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using KlinikH.Application.ViewModels;
 
 namespace KlinikH.Controllers
 {
-    public class HomeControllerTest : Controller
+    public class HomeController : Controller
     {
-        private readonly ILogger<HomeControllerTest> _logger;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeControllerTest(ILogger<HomeControllerTest> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }

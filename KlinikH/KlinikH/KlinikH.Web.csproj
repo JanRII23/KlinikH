@@ -18,9 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AppBundle\HomeBundle\Models\" />
-	<Folder Include="AppBundle\HomeBundle\Controllers\" />
-	<Folder Include="AppBundle\HomeBundle\Views\" />
+	<Folder Include="Areas\Admin\" />
+	<Folder Include="Areas\User\" />
   </ItemGroup>
 
   <ItemGroup>

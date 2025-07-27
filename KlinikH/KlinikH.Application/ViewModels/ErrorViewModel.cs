@@ -1,4 +1,6 @@
-namespace KlinikH.Models
+﻿
+
+namespace KlinikH.Application.ViewModels
 {
     public class ErrorViewModel
     {

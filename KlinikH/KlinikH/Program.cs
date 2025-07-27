@@ -19,8 +19,8 @@ builder.Services.AddControllersWithViews();
 
 //TODO: but this looks to break css mapping tho
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-builder.Services.AddServicesInfrastructure();
-builder.Services.AddServicesApplication();
+//builder.Services.AddServicesInfrastructure();
+//builder.Services.AddServicesApplication();
 
 var app = builder.Build();
 
