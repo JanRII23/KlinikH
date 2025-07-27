@@ -1,26 +1,29 @@
 //using KlinikH.Models;
 using KlinikH.Infrastructure;
 using KlinikH.Application;
+using KlinikH.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 //using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DevConnection") ?? throw new InvalidOperationException("Connection string 'DevConnection' not found.");
+builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDBContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDBContext>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-//DB injection for the migration to the application
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"))
-//);
-//TODO: need to update this connection and clean up the .Web folder
 
 
 // Can actually leverage IIS Express or simply download the razor runtime package 
 
 //TODO: but this looks to break css mapping tho
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-//builder.Services.AddServicesInfrastructure();
-//builder.Services.AddServicesApplication();
+builder.Services.AddServicesInfrastructure(builder.Configuration);
+builder.Services.AddServicesApplication(builder.Configuration);
 
 var app = builder.Build();
 
