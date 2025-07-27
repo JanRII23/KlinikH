@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace KlinikH.Domain.Entities
 {
@@ -8,6 +9,8 @@ namespace KlinikH.Domain.Entities
     /// </summary>
     public class AppUser : IdentityUser
     {
+        [Key]
+        public int userId { get; set; }
         public string username { get; set; } = string.Empty;
         public string password { get; set; } = string.Empty;
         public string firstname { get; set; } = string.Empty;
