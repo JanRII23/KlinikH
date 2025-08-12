@@ -6,7 +6,7 @@ namespace KlinikH.Application
     {
         public string firstname { get; set; } = string.Empty;
         public string lastname { get; set; } = string.Empty;
-        public string email { get; set; } = string.Empty;
+        //public string email { get; set; } = string.Empty;
 
         public AppUserViewModel() { }
 
@@ -14,7 +14,7 @@ namespace KlinikH.Application
         {
             firstname = user.firstname;
             lastname = user.lastname;
-            email = user.email;
+            //email = user.email;
         }
 
         public AppUser ConvertViewModelToModel(AppUser user)
@@ -23,7 +23,7 @@ namespace KlinikH.Application
             {
                 firstname = firstname,
                 lastname = lastname,
-                email = email,
+                //email = email,
             };
         }
     }
