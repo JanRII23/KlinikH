@@ -12,5 +12,25 @@ namespace KlinikH.Infrastructure.Repositories
         }
         public DbSet<AdminAppUser> AdminAppUser { get; set; }
         public DbSet<AppUser> AppUser { get; set; }
+
+        /*protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
+
+            //TODO: refactor this more later one but yeah can customize this actually and define each table accordingly
+
+            //TODO: per docs seems like its NOT possible to have two auto-incrementing here?
+
+            //builder.Entity<AdminAppUser>()
+            //       .Property(aau => aau.adminId)
+            //       .ValueGeneratedOnAdd();
+
+            //builder.Entity<AppUser>()
+            //       .Property(au => au.userId)
+            //       .ValueGeneratedOnAdd();
+        }*/
     }
 }

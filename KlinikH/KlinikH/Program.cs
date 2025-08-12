@@ -40,7 +40,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+//TODO: believe this is important in the order before accessing the routes?
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "areas",
