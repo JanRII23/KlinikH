@@ -1,0 +1,54 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using KlinikH.Application.Helpers;
+using KlinikH.Application.ViewModels;
+using Microsoft.AspNetCore.Identity;
+
+
+namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
+{
+    [Area("User")]
+    public class AccountController : Controller
+    {
+        private readonly UserManager<IdentityUser> userManager;
+        private readonly SignInManager<IdentityUser> signInManager;
+
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        {
+            this.userManager = userManager;
+            this.signInManager = signInManager;
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Register"));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid) 
+            { 
+                //TODO: this actually needs to be refactored don't map the username to the email
+                //TODO: test the fail state
+                var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+                var result = await userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    await signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home", new {area = ""});
+                }
+
+                foreach(var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            //TODO: how can I define the view to pass in the model here?
+            //return View(model);
+            return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Register"));
+        }
+    }
+}

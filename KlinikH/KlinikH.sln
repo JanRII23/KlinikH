@@ -5,13 +5,13 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlinikH.Web", "KlinikH\KlinikH.Web.csproj", "{45B9F565-E281-43BF-80F0-81159029F29B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlinikH.Application", "KlinikH.Application\KlinikH.Application.csproj", "{E19CBE8A-AE64-4DCD-B7C4-6011BBD92A05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlinikH.Application", "KlinikH.Application\KlinikH.Application.csproj", "{E19CBE8A-AE64-4DCD-B7C4-6011BBD92A05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlinikH.Domain", "KlinikH.Domain\KlinikH.Domain.csproj", "{EE988B6C-0F03-4B16-A0D7-00B0628921C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlinikH.Domain", "KlinikH.Domain\KlinikH.Domain.csproj", "{EE988B6C-0F03-4B16-A0D7-00B0628921C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlinikH.Infrastructure", "KlinikH.Infrastructure\KlinikH.Infrastructure.csproj", "{0519299F-F2DE-4E7A-B176-25B81C35CBE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlinikH.Infrastructure", "KlinikH.Infrastructure\KlinikH.Infrastructure.csproj", "{0519299F-F2DE-4E7A-B176-25B81C35CBE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlinikH.Tests", "KlinikH.Tests\KlinikH.Tests.csproj", "{75CA8F22-EE78-4AA8-ABA3-BB042C83CAB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlinikH.Tests", "KlinikH.Tests\KlinikH.Tests.csproj", "{75CA8F22-EE78-4AA8-ABA3-BB042C83CAB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
