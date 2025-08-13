@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KlinikH.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250812033025_AddingIdentity")]
-    partial class AddingIdentity
+    [Migration("20250813013248_AddingIdentity3")]
+    partial class AddingIdentity3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

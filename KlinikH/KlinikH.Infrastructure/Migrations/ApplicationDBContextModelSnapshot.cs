@@ -254,7 +254,7 @@ namespace KlinikH.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("AspNetUsers", null, t =>
+                    b.ToTable("AspNetUsers", t =>
                         {
                             t.Property("createdOn")
                                 .HasColumnName("AdminAppUser_createdOn");

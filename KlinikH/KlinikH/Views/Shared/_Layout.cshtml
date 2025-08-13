@@ -25,7 +25,7 @@
                         <li class="nav-item" id="landing_menu_nav">
                             <select  class="form-control" autocomplete="gender" aria-required="true">
                                 <option value="-1">
-                                    Select Gender
+                                    Provider
                                 </option>
                             </select>
                         </li>
@@ -51,7 +51,13 @@
                         <li class="nav-item" id="landing_menu_nav">
                             <a class="nav-link text-dark" asp-area="User" asp-controller="ContactHome" asp-action="Index">Contact</a>
                         </li>
-                        <partial name="_LoginPartial" />
+                        <li class="nav-item" id="landing_menu_nav">
+                            <a class="nav-link text-dark" asp-area="User" asp-controller="Account" asp-action="Register">Register</a>
+                        </li>
+                        @* <li class="nav-item" id="landing_menu_nav">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-controller="Account" asp-action="Register">Register</a>
+                        </li> *@
+                         @* <partial name="_LoginPartial" /> *@
                     </ul>
                 </div>
                 <div class="d-sm-inline-flex justify-content-center">
