@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<IdentityUser> signInManager;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -50,14 +52,11 @@
                         </li>
                         <li class="nav-item" id="landing_menu_nav">
                             <a class="nav-link text-dark" asp-area="User" asp-controller="ContactHome" asp-action="Index">Contact</a>
-                        </li>
-                        <li class="nav-item" id="landing_menu_nav">
-                            <a class="nav-link text-dark" asp-area="User" asp-controller="Account" asp-action="Register">Register</a>
-                        </li>
+                        </li>            
                         @* <li class="nav-item" id="landing_menu_nav">
                             <a class="nav-link text-dark" asp-area="Identity" asp-controller="Account" asp-action="Register">Register</a>
                         </li> *@
-                         @* <partial name="_LoginPartial" /> *@
+                         <partial name="_LoginPartial" />
                     </ul>
                 </div>
                 <div class="d-sm-inline-flex justify-content-center">
