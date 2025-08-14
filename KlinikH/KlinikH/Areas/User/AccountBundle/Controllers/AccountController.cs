@@ -11,11 +11,13 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+		private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+		public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -31,6 +33,8 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
             { 
                 //TODO: this actually needs to be refactored don't map the username to the email
                 //TODO: test the fail state
+
+                //TODO: also this needs to be the either user or admin user
                 var user = new IdentityUser { UserName = model.Email, Email = model.Email };
                 var result = await userManager.CreateAsync(user, model.Password);
 
@@ -50,5 +54,23 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
             //return View(model);
             return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Register"));
         }
+
+        //TODO: very important the logout is a POST and NOT a GET request
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+			_logger.LogInformation("User logged out.");
+         
+            //TBH just consider a toast message here when clicking logout to trigger instead 
+            return RedirectToAction("Index", "Home", new { area = "" });
+            
+        }
+
+        /*[HttpGet]
+        public IActionResult Logout()
+        {
+            return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Register"));
+        }*/
     }
 }
