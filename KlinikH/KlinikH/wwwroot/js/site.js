@@ -5,4 +5,3 @@
 
 
 //NOTE: this is a global js file
-

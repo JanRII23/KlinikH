@@ -2,6 +2,7 @@
 using KlinikH.Application.Helpers;
 using KlinikH.Application.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
@@ -67,10 +68,28 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
             
         }
 
-        /*[HttpGet]
-        public IActionResult Logout()
+        [HttpGet]
+        public IActionResult Login()
         {
-            return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Register"));
-        }*/
+            return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Login"));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home", new { area = "" });
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+            }
+
+            return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Login"));
+        }
     }
 }
