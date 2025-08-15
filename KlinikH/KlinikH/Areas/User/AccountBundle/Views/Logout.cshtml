@@ -6,16 +6,17 @@
 <header>
     <h1>Log out</h1>
     @{
-        if (User.Identity?.IsAuthenticated ?? false)
-        {
-            //TODO: need to address this actually as well/fix also de-referenced LogoutModel
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <button type="submit" class="nav-link btn btn-link text-dark">Click here to Logout</button>
-            </form>
-        }
-        else
-        {
-            <p>You have successfully logged out of the application.</p>
-        }
+        <p>You have successfully logged out of the application.</p>
+        // if (User.Identity?.IsAuthenticated ?? false)
+        // {
+        //     TODO: need to address this actually as well/fix also de-referenced LogoutModel
+        //     <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+        //         <button type="submit" class="nav-link btn btn-link text-dark">Click here to Logout</button>
+        //     </form>
+        // }
+        // else
+        // {
+            
+        // }
     }
 </header>

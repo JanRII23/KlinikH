@@ -2,6 +2,8 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
+//TODO: don't actually need this file just for reference
+
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -23,7 +25,6 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Views
             _logger = logger;
         }
 
-        [HttpPost]
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();

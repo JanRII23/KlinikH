@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace KlinikH.Application.ViewModels
 {
-    public class RegisterViewModel
+    public class LoginViewModel
     {
         [Required]
         [EmailAddress]
@@ -13,9 +13,7 @@ namespace KlinikH.Application.ViewModels
         [DataType(DataType.Password)]
         public required string Password { get; set; }
 
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "Password and confirmation password do not match.")]
-        public required string ConfirmPassword { get; set; }
+        [Display(Name = "Remember me")]
+        public bool RememberMe { get; set; }
     }
 }
