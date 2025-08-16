@@ -1,30 +1,49 @@
 ﻿function addReveal(htmlElement, passwordInputId) {
-    let icon = htmlElement.querySelector('i');
-
     if (passwordInputId.type === 'password') {
         passwordInputId.type = 'text';
-        icon.classList.remove('bi-eye');
-        icon.classList.add('bi-eye-slash');
+        htmlElement.classList.remove('bi-eye');
+        htmlElement.classList.add('bi-eye-slash');
     } else {
         passwordInputId.type = 'password';
-        icon.classList.remove('bi-eye-slash');
-        icon.classList.add('bi-eye');
+        htmlElement.classList.remove('bi-eye-slash');
+        htmlElement.classList.add('bi-eye');
     }
 }
 
-//TODO: need to fix this actually since the html hierarchy is housing the id wrong
+function hideReveal(passwordInputId) {
+    if (passwordInputId.type === 'text') {
+        passwordInputId.type = 'password';
+        htmlElement = document.querySelector('#revealPassword');
+        htmlElement.classList.remove('bi-eye-slash');
+        htmlElement.classList.add('bi-eye');
+    }
+}
 
-if (document.querySelector('#revealPassword')) {
-    document.querySelector('#revealPassword').addEventListener('click', function () {
-        const passwordInputId = document.getElementById('passwordInput');
-        addReveal(this, passwordInputId);
+
+if (document.querySelector('#revealPassword') && document.querySelector('#passwordGroup')) {
+    const revealElement = document.querySelector('#revealPassword');
+    const passwordInputId = document.getElementById('passwordInput');
+
+    revealElement.addEventListener('click', () => {
+        addReveal(revealElement, passwordInputId);
     });
+
+    document.querySelector('#passwordGroup').addEventListener('focusout', () => {
+        hideReveal(passwordInputId);
+    })
 }
 
 if (document.querySelector('#revealConfirmPassword')) {
-    document.querySelector('#revealConfirmPassword').addEventListener('click', function () {
-        const passwordInputId = document.getElementById('passwordConfirmInput');
-        addReveal(this, passwordInputId);
+    const revealElement = document.querySelector('#revealConfirmPassword');
+    const passwordInputId = document.getElementById('passwordConfirmInput');
+
+    revealElement.addEventListener('click', () => {
+        addReveal(revealElement, passwordInputId);
     });
 
+    document.querySelector('#confirmPasswordGroup').addEventListener('focusout', () => {
+        hideReveal(passwordInputId);
+    })
 }
+
+

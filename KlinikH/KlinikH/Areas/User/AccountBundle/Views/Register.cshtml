@@ -4,6 +4,10 @@
     ViewData["Title"] = "Register";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/User/password.css" asp-append-version="true" />
+}
+
 @section Scripts {
     <script src="~/js/User/password.js" asp-append-version="true"></script>
 }
@@ -20,18 +24,18 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="passwordGroup">
                 <label asp-for="Password" class="control-label"></label>
-                <span class="input-group-text" style="cursor:pointer;" id="revealPassword">
-                    <i class="bi bi-eye" style="padding-right:10px;"></i>
+                <span class="input-group-text">
+                    <i id="revealPassword" class="bi bi-eye"></i>
                     <input asp-for="Password" class="form-control" id="passwordInput" />
                 </span>
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="confirmPasswordGroup">
                 <label asp-for="ConfirmPassword" class="control-label"></label>
-                <span class="input-group-text" style="cursor:pointer;" id="revealConfirmPassword">
-                    <i class="bi bi-eye" style="padding-right:10px;"></i>
+                <span class="input-group-text">
+                    <i id="revealConfirmPassword" class="bi bi-eye"></i>
                     <input asp-for="ConfirmPassword" class="form-control" id="passwordConfirmInput" />
                 </span>
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>

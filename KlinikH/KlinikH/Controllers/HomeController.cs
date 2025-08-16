@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using KlinikH.Application.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KlinikH.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
