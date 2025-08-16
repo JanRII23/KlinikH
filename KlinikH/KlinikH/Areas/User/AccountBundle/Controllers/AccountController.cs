@@ -3,6 +3,7 @@ using KlinikH.Application.Helpers;
 using KlinikH.Application.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
@@ -22,6 +23,7 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Register"));
@@ -69,6 +71,7 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Login"));
