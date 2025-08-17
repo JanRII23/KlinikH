@@ -28,6 +28,16 @@ namespace KlinikH.Infrastructure
                             .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
+
+            //TODO: at this time this is actually only configured for the User side of things need the admin
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Events.OnRedirectToLogin = context =>
+                {
+                    context.Response.Redirect("/User/Account/Login?returnUrl=" + context.Request.Path);
+                    return Task.CompletedTask;
+                };
+            });
             //TODO: like so there are actually other things you can customize in identities just check docs or under IdentityOptions. above is just the shorthand for it
             /*services.Configure<IdentityOptions>(options =>
             {
