@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
 {
     [Area("User")]
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> userManager;
@@ -23,7 +24,6 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Register()
         {
             return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Register"));
@@ -71,14 +71,14 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Login()
+        public IActionResult Login(string ReturnUrl = "/")
         {
+            ViewData["ReturnUrl"] = ReturnUrl;
             return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Login"));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model, string ReturnUrl = "/")
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,14 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home", new { area = "" });
+                    //TODO: validate against all bundles, trim any https, and maybe just the home workflow 
+                    if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
+                    {
+                        return Redirect(ReturnUrl);
+                    } else
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "" });
+                    }
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
