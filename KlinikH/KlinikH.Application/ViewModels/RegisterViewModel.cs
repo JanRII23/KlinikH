@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace KlinikH.Application.ViewModels
@@ -7,6 +8,7 @@ namespace KlinikH.Application.ViewModels
     {
         [Required]
         [EmailAddress]
+        [Remote(action: "IsEmailInUse", controller: "Account", areaName: "User")]
         public required string Email { get; set; }
 
         [Required]

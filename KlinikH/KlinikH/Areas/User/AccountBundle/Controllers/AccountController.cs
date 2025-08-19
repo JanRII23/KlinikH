@@ -2,9 +2,9 @@
 using KlinikH.Application.Helpers;
 using KlinikH.Application.ViewModels;
 using Microsoft.AspNetCore.Identity;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.AspNetCore.Authorization;
 
+//TODO: also how do I register/login by email (gmail)?
 
 namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
 {
@@ -58,6 +58,27 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
             return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Register"));
         }
 
+        //TODO: https://dotnetdocs.ir/Post/26/how-to-use-remote-attribute-in-aspnet-core response cache?
+        [AcceptVerbs("Get", "Post")]
+        [AllowAnonymous]
+        public async Task<IActionResult> IsEmailInUse(string email)
+        {
+            //TODO: how do I extend this method also how do I handle for collisions
+                //TODO: if I define that email/username is already being used thats bad tho
+            //TODO: for mine its NOT going to map to a CC but on a per user basis?
+
+            //TODO: can actually also change this to a user interface
+            var user = await userManager.FindByEmailAsync(email);
+
+            if (user == null) {
+                return Json(true);
+            } else {
+                return Json($"Email {email} is alread in use");
+            }
+            //TODO: this is bounded by the "Remote" clause in the registerViewModel
+            //TODO: this is actually a clientside validation here
+        }
+
         //TODO: very important the logout is a POST and NOT a GET request
         [HttpPost]
         public async Task<IActionResult> Logout()
@@ -87,6 +108,8 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
                 if (result.Succeeded)
                 {
                     //TODO: validate against all bundles, trim any https, and maybe just the home workflow 
+
+                    //TODO: also how can I make this returnUrl more out encoded?
                     if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
                     {
                         return Redirect(ReturnUrl);
