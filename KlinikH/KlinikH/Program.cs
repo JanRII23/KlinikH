@@ -51,7 +51,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-
+//TODO: what is this id param actually?
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
