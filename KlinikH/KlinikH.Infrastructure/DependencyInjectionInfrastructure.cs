@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using KlinikH.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using KlinikH.Domain.Entities;
 
 namespace KlinikH.Infrastructure
 {
@@ -14,7 +15,7 @@ namespace KlinikH.Infrastructure
         public static IServiceCollection AddServicesInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<UnitOfWorkInterface, UnitOfWork>();
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<AppUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 10;
                 options.Password.RequiredUniqueChars = 3;

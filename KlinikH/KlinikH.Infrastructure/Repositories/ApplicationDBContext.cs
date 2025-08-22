@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KlinikH.Infrastructure.Repositories
 {
-    public class ApplicationDBContext : IdentityDbContext
+    public class ApplicationDBContext : IdentityDbContext<AppUser>
     {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {

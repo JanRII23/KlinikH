@@ -7,6 +7,9 @@ namespace KlinikH.Application.ViewModels
     public class RegisterViewModel
     {
         [Required]
+        public required string Username { get; set; }
+
+        [Required]
         [EmailAddress]
         [Remote(action: "IsEmailInUse", controller: "Account", areaName: "User")]
         public required string Email { get; set; }

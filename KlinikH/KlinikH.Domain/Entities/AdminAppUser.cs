@@ -6,10 +6,12 @@ namespace KlinikH.Domain.Entities
     /// <summary>
     /// DB Entity representation of a Admin Application User (NOT Standard User)
     /// </summary>
-    public class AdminAppUser : IdentityUser
+    public class AdminAppUser
     {
         //public int adminId {  get; set; }
         //public string username { get; set; } = string.Empty;
+        [Key] 
+        public int Id { get; set; }
         public string password { get; set; } = string.Empty;
         public string firstname { get; set; } = string.Empty;
         public string lastname { get; set; } = string.Empty;
