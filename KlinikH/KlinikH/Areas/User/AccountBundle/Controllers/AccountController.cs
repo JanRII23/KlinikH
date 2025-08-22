@@ -3,6 +3,7 @@ using KlinikH.Application.Helpers;
 using KlinikH.Application.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using KlinikH.Domain.Entities;
 
 //TODO: also how do I register/login by email (gmail)?
 
@@ -12,11 +13,11 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<AppUser> userManager;
+        private readonly SignInManager<AppUser> signInManager;
 		private readonly ILogger<AccountController> _logger;
 
-		public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger)
+		public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ILogger<AccountController> logger)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -38,12 +39,18 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
                 //TODO: test the fail state
 
                 //TODO: also this needs to be the either user or admin user
-                var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+                var user = new AppUser { UserName = model.Username, Email = model.Email };
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
+
+                    user.lastLogin = DateTime.Now;
+                    await userManager.UpdateAsync(user);
+
+                    //TODO: if associated with a cookie need to actually do refreshSignInAsync
+
                     return RedirectToAction("Index", "Home", new {area = ""});
                 }
 
@@ -103,11 +110,17 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
 
                 if (result.Succeeded)
                 {
                     //TODO: validate against all bundles, trim any https, and maybe just the home workflow 
+                    var user = await userManager.FindByNameAsync(model.Username);
+                    if (user != null)
+                    {
+                        user.lastLogin = DateTime.Now;
+                        await userManager.UpdateAsync(user);
+                    }
 
                     //TODO: also how can I make this returnUrl more out encoded?
                     if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
