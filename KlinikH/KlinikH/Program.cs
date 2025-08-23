@@ -27,7 +27,6 @@ builder.Services.AddControllersWithViews();
 
 // Can actually leverage IIS Express or simply download the razor runtime package 
 
-//TODO: but this looks to break css mapping tho
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddServicesInfrastructure(builder.Configuration);
 builder.Services.AddServicesApplication(builder.Configuration);
@@ -47,7 +46,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-//TODO: believe this is important in the order before accessing the routes?
+//NOTE: believe this is important in the order before accessing the routes
 app.UseAuthentication();
 app.UseAuthorization();
 

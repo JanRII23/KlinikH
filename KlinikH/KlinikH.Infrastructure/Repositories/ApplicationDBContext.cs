@@ -22,7 +22,7 @@ namespace KlinikH.Infrastructure.Repositories
 
             //TODO: refactor this more later one but yeah can customize this actually and define each table accordingly
 
-            //TODO: per docs seems like its NOT possible to have two auto-incrementing here?
+            //NOTE: note auto-incrementing is already set on the identity user after being extended
 
             //builder.Entity<AdminAppUser>()
             //       .Property(aau => aau.adminId)

@@ -3,8 +3,8 @@ namespace KlinikH.Application.Helpers
 {
     public static class CustomViewHelper
     {
-        //TODO: need to define validation on the areas that are allowed across the application
-        //TODO: also I think I can just define this as a switch case right onto a single function?
+        //NOTE: need to define validation on the areas that are allowed across the application
+        //NOTE: also I think I can just define this as a switch case right onto a single function?
 
         public static string DefineCustomUserRoute(string bundleFolder, string viewName)
         {
