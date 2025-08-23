@@ -4,6 +4,7 @@ using KlinikH.Application.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using KlinikH.Domain.Entities;
+using Microsoft.AspNetCore.DataProtection;
 
 //TODO: also how do I register/login by email (gmail)?
 
@@ -16,12 +17,14 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
 		private readonly ILogger<AccountController> _logger;
+        private readonly IDataProtector _protector;
 
-		public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ILogger<AccountController> logger)
+		public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ILogger<AccountController> logger, IDataProtectionProvider provider)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             _logger = logger;
+            _protector = provider.CreateProtector("ReturnUrlProtector");
         }
 
         [HttpGet]
@@ -35,10 +38,6 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         {
             if (ModelState.IsValid) 
             { 
-                //TODO: this actually needs to be refactored don't map the username to the email
-                //TODO: test the fail state
-
-                //TODO: also this needs to be the either user or admin user
                 var user = new AppUser { UserName = model.Username, Email = model.Email };
                 var result = await userManager.CreateAsync(user, model.Password);
 
@@ -71,10 +70,7 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         public async Task<IActionResult> IsEmailInUse(string email)
         {
             //TODO: how do I extend this method also how do I handle for collisions
-                //TODO: if I define that email/username is already being used thats bad tho
-            //TODO: for mine its NOT going to map to a CC but on a per user basis?
-
-            //TODO: can actually also change this to a user interface
+                
             var user = await userManager.FindByEmailAsync(email);
 
             if (user == null) {
@@ -82,11 +78,10 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
             } else {
                 return Json($"Email {email} is alread in use");
             }
-            //TODO: this is bounded by the "Remote" clause in the registerViewModel
-            //TODO: this is actually a clientside validation here
+            //TODO: this is bounded by the "Remote" clause in the registerViewModel for validation on focusout (i.e. client side validation)
         }
 
-        //TODO: very important the logout is a POST and NOT a GET request
+        //NOTE: very important the logout is a POST and NOT a GET request
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -101,7 +96,7 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         [HttpGet]
         public IActionResult Login(string ReturnUrl = "/")
         {
-            ViewData["ReturnUrl"] = ReturnUrl;
+            ViewData["ReturnUrl"] = _protector.Protect(ReturnUrl);
             return View(CustomViewHelper.DefineCustomUserRoute("AccountBundle", "Login"));
         }
 
@@ -121,11 +116,11 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
                         user.lastLogin = DateTime.Now;
                         await userManager.UpdateAsync(user);
                     }
+                    var decodedReturnUrl = _protector.Unprotect(ReturnUrl);
 
-                    //TODO: also how can I make this returnUrl more out encoded?
-                    if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
+                    if (!string.IsNullOrEmpty(decodedReturnUrl) && Url.IsLocalUrl(decodedReturnUrl))
                     {
-                        return Redirect(ReturnUrl);
+                        return Redirect(decodedReturnUrl);
                     } else
                     {
                         return RedirectToAction("Index", "Home", new { area = "" });

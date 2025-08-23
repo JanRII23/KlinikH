@@ -18,7 +18,7 @@ namespace KlinikH.Application
 
             services.AddTransient<UnitOfWorkInterface, UnitOfWork>();
 
-            //TODO: does this need to be here?
+            //NOTE: does this need to be here?
             /*services.AddDbContext<ApplicationDBContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DevConnection")));
 */

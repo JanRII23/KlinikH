@@ -7,7 +7,6 @@ namespace KlinikH.Web.Areas.User.FAQBundle.Controllers
     [Area("User")]
     public class FAQHomeController : Controller
     {
-        //TODO: is there a better way to define helper?
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Index()

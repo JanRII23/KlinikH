@@ -7,7 +7,7 @@ namespace KlinikH.Web.Areas.Identity.AccountBundle.Controllers
     {
         // GET: /<controller>/
 
-        //TODO: this was just a POC don't actually make it like so
+        //TODO: remove later
         public IActionResult Register()
         {
             return View(CustomViewHelper.DefineCustomIdentityRoute("AccountBundle", "Register"));
