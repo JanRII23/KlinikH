@@ -45,7 +45,7 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
 
-                    user.lastLogin = DateTime.Now;
+                    user.LastLogin = DateTime.Now;
                     await userManager.UpdateAsync(user);
 
                     //TODO: if associated with a cookie need to actually do refreshSignInAsync
@@ -76,9 +76,24 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
             if (user == null) {
                 return Json(true);
             } else {
-                return Json($"Email {email} is alread in use");
+                return Json($"Email {email} is already in use");
             }
             //TODO: this is bounded by the "Remote" clause in the registerViewModel for validation on focusout (i.e. client side validation)
+        }
+
+        [AcceptVerbs("Get", "Post")]
+        [AllowAnonymous]
+        public async Task<IActionResult> IsUsernameInUse(string username)
+        {
+            //TODO: account for in-use but also for whether its valid?
+            var user = await userManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return Json(true);
+            } else
+            {
+                return Json($"Username {username} is already in use");
+            }
         }
 
         //NOTE: very important the logout is a POST and NOT a GET request
@@ -113,7 +128,7 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
                     var user = await userManager.FindByNameAsync(model.Username);
                     if (user != null)
                     {
-                        user.lastLogin = DateTime.Now;
+                        user.LastLogin = DateTime.Now;
                         await userManager.UpdateAsync(user);
                     }
                     var decodedReturnUrl = _protector.Unprotect(ReturnUrl);
