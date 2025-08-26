@@ -11,13 +11,15 @@ namespace KlinikH.Domain.Entities
     {
         public AppUser()
         {
-            createdOn = DateTime.Now;
+            CreatedOn = DateTime.Now;
         }
 
-        public string firstname { get; set; } = string.Empty;
-        public string lastname { get; set; } = string.Empty;
-        public DateTime lastLogin { get; set; }
-        public DateTime createdOn { get; set; }
-        public bool isLockedOut { get; set; }
+        public string Firstname { get; set; } = string.Empty;
+        public string Lastname { get; set; } = string.Empty;
+        public DateTime LastLogin { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public bool IsLockedOut { get; set; }
+
+        //TODO: note once pivoting to admin workflows need to setup an ENUM type for regular user, admin user
     }
 }

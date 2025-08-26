@@ -7,6 +7,7 @@ namespace KlinikH.Application.ViewModels
     public class RegisterViewModel
     {
         [Required]
+        [Remote(action: "IsUsernameInUse", controller: "Account", areaName: "User")]
         public required string Username { get; set; }
 
         [Required]

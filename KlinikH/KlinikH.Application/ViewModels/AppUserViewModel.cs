@@ -12,8 +12,8 @@ namespace KlinikH.Application
 
         public AppUserViewModel(AppUser user)
         {
-            firstname = user.firstname;
-            lastname = user.lastname;
+            firstname = user.Firstname;
+            lastname = user.Lastname;
             //email = user.email;
         }
 
@@ -21,8 +21,8 @@ namespace KlinikH.Application
         {
             return new AppUser
             {
-                firstname = firstname,
-                lastname = lastname,
+                Firstname = user.Firstname,
+                Lastname = user.Lastname,
                 //email = email,
             };
         }
