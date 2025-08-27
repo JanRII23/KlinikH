@@ -21,5 +21,6 @@ namespace KlinikH.Domain.Entities
         public bool IsLockedOut { get; set; }
 
         //TODO: note once pivoting to admin workflows need to setup an ENUM type for regular user, admin user
+        //TODO: or I think this is already mapped to the userRoles table somehow?
     }
 }

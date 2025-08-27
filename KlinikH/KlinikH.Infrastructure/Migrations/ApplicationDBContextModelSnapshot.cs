@@ -53,7 +53,7 @@ namespace KlinikH.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AdminAppUser");
+                    b.ToTable("AdminAppUser", (string)null);
                 });
 
             modelBuilder.Entity("KlinikH.Domain.Entities.AppUser", b =>

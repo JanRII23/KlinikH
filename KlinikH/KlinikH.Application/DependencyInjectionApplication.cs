@@ -15,8 +15,8 @@ namespace KlinikH.Application
         public static IServiceCollection AddServicesApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<AppUserServiceInterface, AppUserService>();
-
             services.AddTransient<UnitOfWorkInterface, UnitOfWork>();
+            services.AddScoped<DbInitializerInterface, DbInitializerService>();
 
             //NOTE: does this need to be here?
             /*services.AddDbContext<ApplicationDBContext>(options =>

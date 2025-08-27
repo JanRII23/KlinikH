@@ -4,6 +4,7 @@ using KlinikH.Application;
 using KlinikH.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using KlinikH.Application.Services.Interfaces;
 //using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,7 +44,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+DataSeeding();
 app.UseRouting();
 
 //NOTE: believe this is important in the order before accessing the routes
@@ -63,3 +64,12 @@ app.MapControllerRoute(
 //NOTE: I'm thinking this can be wrapped in independent modules right?
 
 app.Run();
+
+void DataSeeding()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<DbInitializerInterface>();
+        dbInitializer.Initialize();
+    }
+}
