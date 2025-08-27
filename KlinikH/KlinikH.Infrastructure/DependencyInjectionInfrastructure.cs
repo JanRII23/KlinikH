@@ -15,7 +15,7 @@ namespace KlinikH.Infrastructure
         public static IServiceCollection AddServicesInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<UnitOfWorkInterface, UnitOfWork>();
-            services.AddIdentity<AppUser, IdentityRole>(options =>
+            services.AddIdentity<AppUser, AppRole>(options =>
             {
                 options.Password.RequiredLength = 10;
                 options.Password.RequiredUniqueChars = 3;
