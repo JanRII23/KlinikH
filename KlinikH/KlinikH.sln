@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlinikH.Infrastructure", "K
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KlinikH.Tests", "KlinikH.Tests\KlinikH.Tests.csproj", "{75CA8F22-EE78-4AA8-ABA3-BB042C83CAB7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "reactApp", "reactApp\reactApp.csproj", "{CD18A792-8EEF-4493-99DF-644311622482}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{75CA8F22-EE78-4AA8-ABA3-BB042C83CAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75CA8F22-EE78-4AA8-ABA3-BB042C83CAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75CA8F22-EE78-4AA8-ABA3-BB042C83CAB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD18A792-8EEF-4493-99DF-644311622482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD18A792-8EEF-4493-99DF-644311622482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD18A792-8EEF-4493-99DF-644311622482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD18A792-8EEF-4493-99DF-644311622482}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

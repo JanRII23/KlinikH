@@ -63,6 +63,12 @@ app.MapControllerRoute(
 
 //NOTE: I'm thinking this can be wrapped in independent modules right?
 
+// API Controllers
+app.MapControllers();
+
+//TODO: need to customize this path
+app.MapFallbackToFile("/react/{*path}", "react/index.html");
+
 app.Run();
 
 async Task DataSeedingAsync()
