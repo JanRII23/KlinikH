@@ -44,7 +44,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-DataSeeding();
+DataSeedingAsync();
 app.UseRouting();
 
 //NOTE: believe this is important in the order before accessing the routes
@@ -65,11 +65,11 @@ app.MapControllerRoute(
 
 app.Run();
 
-void DataSeeding()
+async Task DataSeedingAsync()
 {
     using (var scope = app.Services.CreateScope())
     {
         var dbInitializer = scope.ServiceProvider.GetRequiredService<DbInitializerInterface>();
-        dbInitializer.Initialize();
+        await dbInitializer.Initialize();
     }
 }

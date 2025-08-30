@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using KlinikH.Domain.Entities;
 using Microsoft.AspNetCore.DataProtection;
+using KlinikH.Domain.Enums.AppUser;
 
 //TODO: also how do I register/login by email (gmail)?
 
@@ -36,6 +37,7 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            //TODO: should the role be dropdown
             if (ModelState.IsValid) 
             { 
                 var user = new AppUser { UserName = model.Username, Email = model.Email };
@@ -44,6 +46,7 @@ namespace KlinikH.Web.Areas.User.AccountBundle.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
+                    await userManager.AddToRoleAsync(user, AppUserRoleTypes.User);
 
                     user.LastLogin = DateTime.Now;
                     await userManager.UpdateAsync(user);
