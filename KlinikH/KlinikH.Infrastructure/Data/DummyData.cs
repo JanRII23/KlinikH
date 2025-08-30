@@ -1,17 +1,14 @@
 ﻿using KlinikH.Domain.Entities;
 using KlinikH.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Threading.Tasks;
 
 namespace KlinikH.Infrastructure.Data
 {
-    //TODO: this is seeding the DB with users but remove before merging
+    //TODO: keep this for future reference
     public class DummyData
     {
         public static async Task Initialize(ApplicationDBContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
-            //TODO: update this dummyData 
             context.Database.EnsureCreated();
 
             string adminId1 = "";
