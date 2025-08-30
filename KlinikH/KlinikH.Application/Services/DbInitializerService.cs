@@ -10,9 +10,10 @@ namespace KlinikH.Application.Services
 {
     public class DbInitializerService : DbInitializerInterface
     {
-        private UserManager<AppUser> _userManager;
-        private RoleManager<AppRole> _roleManager;
-        private ApplicationDBContext _context;
+        //TODO: need to write data seeding for admin type users too
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<AppRole> _roleManager;
+        private readonly ApplicationDBContext _context;
 
         public DbInitializerService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, ApplicationDBContext context)
         {
@@ -21,7 +22,7 @@ namespace KlinikH.Application.Services
             _context = context;
         }
 
-        public void Initialize()
+        public async Task Initialize()
         {
             try
             {
@@ -35,23 +36,53 @@ namespace KlinikH.Application.Services
                 throw;
             }
 
+            var userName = "Charizard";
+            var email = "Charizard@gmail.com";
+            var password = "itsP@$$w0rd123";
+
             if (!_roleManager.RoleExistsAsync(AppUserRoleTypes.User).GetAwaiter().GetResult())
             {
-                _roleManager.CreateAsync(new AppRole(AppUserRoleTypes.User)).GetAwaiter().GetResult();
+                var newUserRole = new AppRole(AppUserRoleTypes.User, "Standard User", DateTime.Now);
 
-                _userManager.CreateAsync(new AppUser
+                var createdRole = await _roleManager.CreateAsync(newUserRole);
+
+                if (createdRole.Errors.Any())
                 {
-                    UserName = "Charizard",
-                    Email = "Charizard@gmail.com"
-                }, "P@$$w0rd").GetAwaiter().GetResult();
-
-                var AppUser = _context.AppUser.FirstOrDefault(x => x.UserName == "Charizard");
-
-                if (AppUser != null)
-                {
-                    _userManager.AddToRoleAsync(AppUser, AppUserRoleTypes.User).GetAwaiter().GetResult();
+                    foreach (var error in createdRole.Errors)
+                    {
+                        Console.WriteLine(error.Description);
+                    }
                 }
             }
+
+            var AppUser = _context.AppUser.FirstOrDefault(x => x.UserName == "Charizard");
+
+            if (AppUser == null)
+            {
+                var newUser = new AppUser
+                {
+                    UserName = userName,
+                    Email = email,
+                };
+
+                var createdUser = await _userManager.CreateAsync(newUser, password);
+
+                if (createdUser.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(newUser, AppUserRoleTypes.User);
+                } else
+                {
+                    foreach (var error in createdUser.Errors)
+                    {
+                        Console.WriteLine(error.Description);
+                    }
+                }
+            }
+            else if (!(await _userManager.IsInRoleAsync(AppUser, AppUserRoleTypes.User)))
+            {
+                _userManager.AddToRoleAsync(AppUser, AppUserRoleTypes.User).GetAwaiter().GetResult();
+            }
+            
         }
     }
 }

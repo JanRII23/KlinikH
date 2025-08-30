@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KlinikH.Infrastructure.Data
 {
-    //TODO: this is seeding the DB with users
+    //TODO: this is seeding the DB with users but remove before merging
     public class DummyData
     {
         public static async Task Initialize(ApplicationDBContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
