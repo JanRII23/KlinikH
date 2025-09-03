@@ -1,4 +1,4 @@
-﻿const RankingGrid = ({ items, imgArr }) => {
+﻿const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
 
     const rankingGrid = [];
     const cellCollectionTop = [];
@@ -7,10 +7,21 @@
     const cellCollectionWorst = [];
 
     function pushCellMarkupToArr(cellCollection, rankNum, rowLabel) {
-
+        if (rankNum > 0) {
+            var item = items.find(o => o.ranking === rankNum);
+            cellCollection.push(<div id={`rank-${rankNum}`} onDrop={drop} onDragOver={allowDrop} className="rank-cell">
+                {(item != null) ? <img id={`item-${item.id}`} src={imgArr.find(o => o.id === item.imageId)?.image} draggable="true" onDragStart={drag} />
+                    : null}
+            </div>);
+        }
+        else {
+            cellCollection.push(<div className="row-label">
+                <h4>{rowLabel}</h4>
+            </div>);
+        }
     }
 
-    function createCellsForRows(rowNum) {
+    function createCellsForRow(rowNum) {
         var rankNum = 0;
         var currCollection = [];
         var label = "";
@@ -22,24 +33,29 @@
             if (rowNum === 1) {
                 currCollection = cellCollectionTop;
                 label = "Top Tier";
-            } else if (rowNum === 2) {
+            }
+            else if (rowNum === 2) {
                 currCollection = cellCollectionMiddle;
                 label = "Middle Tier";
-            } else if (rowNum === 3) {
+            }
+            else if (rowNum === 3) {
                 currCollection = cellCollectionBottom;
-                label = "Bottom Tier"
-            } else if (rowNum === 4) {
+                label = "Bottom Tier";
+            }
+            else if (rowNum === 4) {
                 currCollection = cellCollectionWorst;
                 label = "Worst Tier";
             }
             pushCellMarkupToArr(currCollection, rankNum, label);
+
         }
+
     }
 
     function createCellsForRows() {
         const maxRows = 4;
         for (var row = 1; row <= maxRows; row++) {
-            createCellsForRows(row);
+            createCellsForRow(row);
         }
     }
 
