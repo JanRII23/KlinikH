@@ -61,13 +61,14 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
 //NOTE: I'm thinking this can be wrapped in independent modules right?
 
 // API Controllers
 app.MapControllers();
 
 //TODO: need to customize this path
-app.MapFallbackToFile("/react/{*path}", "react/index.html");
+//app.MapFallbackToFile("/react/{*path}", "react/index.html");
 
 app.Run();
 
