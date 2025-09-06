@@ -7,33 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\ReactApp\asset-manifest.json" />
-    <Content Remove="wwwroot\ReactApp\favicon.ico" />
-    <Content Remove="wwwroot\ReactApp\index.html" />
-    <Content Remove="wwwroot\ReactApp\manifest.json" />
-    <Content Remove="wwwroot\ReactApp\service-worker.js" />
-    <Content Remove="wwwroot\ReactApp\service-worker.js.LICENSE.txt" />
-    <Content Remove="wwwroot\ReactApp\service-worker.js.map" />
-    <Content Remove="wwwroot\ReactApp\static\css\main.0a216d40.css" />
-    <Content Remove="wwwroot\ReactApp\static\css\main.0a216d40.css.map" />
-    <Content Remove="wwwroot\ReactApp\static\js\496.e7c99be7.chunk.js" />
-    <Content Remove="wwwroot\ReactApp\static\js\496.e7c99be7.chunk.js.map" />
-    <Content Remove="wwwroot\ReactApp\static\js\main.bcc0292d.js" />
-    <Content Remove="wwwroot\ReactApp\static\js\main.bcc0292d.js.LICENSE.txt" />
-    <Content Remove="wwwroot\ReactApp\static\js\main.bcc0292d.js.map" />
-    <Content Remove="wwwroot\ReactApp\static\media\Godfather.c67d13453ab33175bbc0.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\Highlander.2ea8cab24cf908ffcc51.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\Highlander2.33da947e0a15d18b0114.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\LastOfTheMohicans.ca841162f5c9b943b4ff.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\PoliceAcademy6.21a4ff08795611144c63.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\RearWindow.cc900241b22d2849df37.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\RoadHouse.593e1053e9d69bec78d7.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\Shawshank.62b0b388aeba8f6dae5b.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\StarTreck4.e1bcaff057e1aef03eee.png" />
-    <Content Remove="wwwroot\ReactApp\static\media\Superman4.048783a39edd7a4065d0.png" />
-  </ItemGroup>
-
-  <ItemGroup>
 	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.12" />
@@ -49,33 +22,7 @@
 
   <ItemGroup>
 	<Folder Include="Areas\Admin\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\ReactApp\asset-manifest.json" />
-    <None Include="wwwroot\ReactApp\favicon.ico" />
-    <None Include="wwwroot\ReactApp\index.html" />
-    <None Include="wwwroot\ReactApp\manifest.json" />
-    <None Include="wwwroot\ReactApp\service-worker.js" />
-    <None Include="wwwroot\ReactApp\service-worker.js.LICENSE.txt" />
-    <None Include="wwwroot\ReactApp\service-worker.js.map" />
-    <None Include="wwwroot\ReactApp\static\css\main.0a216d40.css" />
-    <None Include="wwwroot\ReactApp\static\css\main.0a216d40.css.map" />
-    <None Include="wwwroot\ReactApp\static\js\496.e7c99be7.chunk.js" />
-    <None Include="wwwroot\ReactApp\static\js\496.e7c99be7.chunk.js.map" />
-    <None Include="wwwroot\ReactApp\static\js\main.bcc0292d.js" />
-    <None Include="wwwroot\ReactApp\static\js\main.bcc0292d.js.LICENSE.txt" />
-    <None Include="wwwroot\ReactApp\static\js\main.bcc0292d.js.map" />
-    <None Include="wwwroot\ReactApp\static\media\Godfather.c67d13453ab33175bbc0.png" />
-    <None Include="wwwroot\ReactApp\static\media\Highlander.2ea8cab24cf908ffcc51.png" />
-    <None Include="wwwroot\ReactApp\static\media\Highlander2.33da947e0a15d18b0114.png" />
-    <None Include="wwwroot\ReactApp\static\media\LastOfTheMohicans.ca841162f5c9b943b4ff.png" />
-    <None Include="wwwroot\ReactApp\static\media\PoliceAcademy6.21a4ff08795611144c63.png" />
-    <None Include="wwwroot\ReactApp\static\media\RearWindow.cc900241b22d2849df37.png" />
-    <None Include="wwwroot\ReactApp\static\media\RoadHouse.593e1053e9d69bec78d7.png" />
-    <None Include="wwwroot\ReactApp\static\media\Shawshank.62b0b388aeba8f6dae5b.png" />
-    <None Include="wwwroot\ReactApp\static\media\StarTreck4.e1bcaff057e1aef03eee.png" />
-    <None Include="wwwroot\ReactApp\static\media\Superman4.048783a39edd7a4065d0.png" />
+	<Folder Include="wwwroot\ReactApp\" />
   </ItemGroup>
 
   <ItemGroup>
