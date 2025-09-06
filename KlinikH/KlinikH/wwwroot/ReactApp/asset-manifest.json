@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/reactApp/static/css/main.0a216d40.css",
+    "main.js": "/reactApp/static/js/main.1bf8c228.js",
+    "static/js/496.e7c99be7.chunk.js": "/reactApp/static/js/496.e7c99be7.chunk.js",
+    "static/media/LastOfTheMohicans.png": "/reactApp/static/media/LastOfTheMohicans.ca841162f5c9b943b4ff.png",
+    "static/media/RoadHouse.png": "/reactApp/static/media/RoadHouse.593e1053e9d69bec78d7.png",
+    "static/media/Superman4.png": "/reactApp/static/media/Superman4.048783a39edd7a4065d0.png",
+    "static/media/Shawshank.png": "/reactApp/static/media/Shawshank.62b0b388aeba8f6dae5b.png",
+    "static/media/Godfather.png": "/reactApp/static/media/Godfather.c67d13453ab33175bbc0.png",
+    "static/media/Highlander.png": "/reactApp/static/media/Highlander.2ea8cab24cf908ffcc51.png",
+    "static/media/StarTreck4.png": "/reactApp/static/media/StarTreck4.e1bcaff057e1aef03eee.png",
+    "static/media/Highlander2.png": "/reactApp/static/media/Highlander2.33da947e0a15d18b0114.png",
+    "static/media/PoliceAcademy6.png": "/reactApp/static/media/PoliceAcademy6.21a4ff08795611144c63.png",
+    "static/media/RearWindow.png": "/reactApp/static/media/RearWindow.cc900241b22d2849df37.png",
+    "service-worker.js": "/reactApp/service-worker.js",
+    "index.html": "/reactApp/index.html",
+    "main.0a216d40.css.map": "/reactApp/static/css/main.0a216d40.css.map",
+    "main.1bf8c228.js.map": "/reactApp/static/js/main.1bf8c228.js.map",
+    "496.e7c99be7.chunk.js.map": "/reactApp/static/js/496.e7c99be7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a216d40.css",
+    "static/js/main.1bf8c228.js"
+  ]
+}
