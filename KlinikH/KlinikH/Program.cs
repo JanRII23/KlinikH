@@ -67,9 +67,6 @@ app.MapControllerRoute(
 // API Controllers
 app.MapControllers();
 
-//TODO: need to customize this path
-//app.MapFallbackToFile("/react/{*path}", "react/index.html");
-
 app.Run();
 
 async Task DataSeedingAsync()
