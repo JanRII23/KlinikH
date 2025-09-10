@@ -6,24 +6,29 @@
 @*   local =  https://localhost:44400 *@
 @* build file = /reactApp/index.html *@
 
-<a class="btn btn-primary" href="/reactApp/index.html">Go to React App</a>
+@* <a class="btn btn-primary" href="/reactApp/index.html">Go to React App</a> *@
 
-<div class="container d-flex flex-column">
-    <div>
-        <div class="text-center">
-            Ad
+<div class="container">
+    <div class="row text-center">
+        <div class="text-center my-3">
+            
+            <form class="d-flex justify-content-center" role="search">
+                <input class="form-control me-2 border border-dark" type="search" placeholder="Search..." aria-label="Search" style="max-width: 400px; border-radius: 25px;">
+                <button class="btn btn-danger" type="submit" style="border-radius: 25px;">Search</button>
+            </form>
         </div>
     </div>
-
-    <div>
-        <div class="text-center">
-            Search
-        </div>
+    <div class="row text-center">
+        @* Basic idea here is that this needs to flip each tile to show information *@
+        <div class="col-12 col-md-4 bg-white p-3"><img src="~/images/provider.jpg" class="border border-dark" id="contained-landing-img" /></div>
+        <div class="col-12 col-md-4 bg-white p-3"><img src="~/images/facility.jpg" class="border border-dark" id="contained-landing-img" /></div>
+        <div class="col-12 col-md-4 bg-white p-3"><img src="~/images/insurance.jpg" class="border border-dark" id="contained-landing-img" /></div>
     </div>
-
-    <div>
-        <div class="text-center">
-            Ad
+    <div class="row text-center my-3">
+        <div class="col-12">
+            <div class="border border-dark rounded p-4 bg-light" style="min-height: 100px; display: flex; align-items: center; justify-content: center;">
+                <span class="text-muted">AD HERE</span>
+            </div>
         </div>
     </div>
 </div>

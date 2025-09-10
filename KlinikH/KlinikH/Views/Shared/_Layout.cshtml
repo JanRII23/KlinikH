@@ -26,12 +26,13 @@
 
                 <div class="navbar-collapse collapse row w-100 text-center">
                     <div class="col">
+                        @* TRUST, transparency, openness, accountability -> later on this is going to be a mission statement *@
                         <ul class="navbar-nav d-flex justify-content-center align-items-center">
                             <li class="nav-item" id="landing_menu_nav">
                                 <select class="form-select bg-danger text-white fw-bold border-0" autocomplete="off">
                                     <option value="-1">Provider</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
+                                    <option value="1">Facility</option>
+                                    <option value="2">Insurance</option>
                                 </select>
                             </li>
                             <li class="nav-item" id="landing_menu_nav">
@@ -40,7 +41,7 @@
                                 </form>
                             </li>
                             <li class="nav-item d-flex align-items-center fw-bold" id="landing_menu_nav">
-                                at <a class="nav-link fw-bold text-white" asp-area="User" asp-controller="Account" asp-action="Register">St. Lukes Hospital</a>
+                                @@ <a class="nav-link fw-bold text-white" asp-area="User" asp-controller="Account" asp-action="Register">St. Lukes Hospital</a>
                             </li>
                         </ul>
                     </div>
@@ -48,13 +49,16 @@
                     <div class="col">
                         <ul class="navbar-nav d-flex justify-content-center">
                             <li class="nav-item" id="landing_menu_nav_main">
-                                <a class="navbar-brand fw-bold fs-3 text-white display-6 text-custom-outline" asp-area="" asp-controller="Home" asp-action="Index">Klinik[H]</a>
+                                <a class="navbar-brand fw-bold fs-3 text-white display-6 text-custom-outline" asp-area="" asp-controller="Home" asp-action="Index"><span class="text-dark fs-1">K</span>linik<span class="text-dark">[</span>H+<span class="text-dark">]</span></a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="col">
                         <ul class="navbar-nav d-flex justify-content-center">
+                            <li class="nav-item d-flex align-items-center fw-bold" id="landing_menu_nav">
+                                <a class="nav-link fw-bold text-black rounded-pill bg-white" asp-area="User" asp-controller="HelpHome" asp-action="Index">Help</a>
+                            </li>
                             <partial name="_LoginPartial" />
                         </ul>
                     </div>
@@ -73,13 +77,13 @@
 
      <div class="container">
         <main role="main" class="pb-3">
-             @RenderBody()
+              @RenderBody()
          </main>
      </div>
 
     <footer class="border-top footer text-muted bg-danger">
         <div class="container text-center text-white fw-bold">
-            | &copy; 2025 - KlinikH | <a class="text-white fw-bold text-decoration-none" asp-area=" " asp-controller="Home" asp-action="Privacy">Privacy</a> | <a class="text-white fw-bold text-decoration-none" asp-area="User" asp-controller="FAQHome" asp-action="Index">FAQ</a> | <a class="text-white fw-bold text-decoration-none" asp-area="User" asp-controller="ContactHome" asp-action="Index">Contact</a> |
+            <span class="text-dark">|</span> &copy; 2025 - <span class="text-dark fs-5">K</span>linik<span class="text-dark">[</span>H+<span class="text-dark">]</span> <span class="text-dark">|</span> <a class="text-white fw-bold text-decoration-none" asp-area=" " asp-controller="Home" asp-action="Privacy">Privacy</a> <span class="text-dark">|</span> <a class="text-white fw-bold text-decoration-none" asp-area="User" asp-controller="FAQHome" asp-action="Index">FAQ</a> <span class="text-dark">|</span> <a class="text-white fw-bold text-decoration-none" asp-area="User" asp-controller="ContactHome" asp-action="Index">Contact</a> <span class="text-dark">|</span>
         </div>
     </footer>
 
