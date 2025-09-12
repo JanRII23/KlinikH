@@ -25,6 +25,11 @@ namespace KlinikH.Controllers
             return View();
         }
 
+        public IActionResult ReactApp()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
