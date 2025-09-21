@@ -1,14 +1,18 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 600px;
-    margin-top: 200px;
-    background: #fff;
-    padding-bottom: 30px;
+#login_root {
+    display:flex;
+    align-items: flex-start;
+    justify-content: left;
 }
 
-.header {
+.login_container {
+    width: 600px;
+    background: #dc3545;
+    padding-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.login_header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,84 +21,92 @@
     margin-top: 30px;
 }
 
-.text {
-    color: #3c009d;
+.login_text {
+    color: black;
     font-size: 48px;
     font-weight: 700;
 }
 
-.underline {
+.login_underline {
     width: 61px;
     height: 6px;
-    background: #3c009d;
+    background: black;
     border-radius: 9px;
 }
 
-.inputs {
+.login_inputs {
     margin-top: 55px;
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-.input {
+.login_input {
     display: flex;
     align-items: center;
     margin: auto;
     width: 480px;
     height: 80px;
-    background: #eaeaea;
+    background: white;
     border-radius: 6px;
+    border: 2px solid black;
 }
 
-.input img {
+.login_input img {
     margin: 0px 30px;
 }
 
-.input input {
+.login_input input {
     height: 50px;
     width: 400px;
-    background: transparent;
+    background: white;
     border: none;
     outline: none;
-    color: #797979;
+    color: black;
     font-size: 19px;
 }
 
-.forgot-password {
+.login_forgot-password {
     padding-left: 62px;
     margin-top: 27px;
-    color: #797979;
+    color: black;
     font-size: 18px;
 }
 
-.forgot-password span {
-    color: #4c00b4;
+.login_forgot-password span {
+    color: white;
     cursor: pointer;
 }
 
-.submit-container {
+.login_submit-container {
     display: flex;
     justify-content: center;
     gap: 30px;
     margin: 60px auto;
 }
 
-.submit {
+.login_submit {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 220px;
     height: 59px;
     color: #fff;
-    background: #4c00b4;
+    background: black;
     border-radius: 50px;
     font-size: 19px;
     font-weight: 700;
     cursor: pointer;
+    border: 2px solid black
 }
 
-.gray {
+.login_gray {
     background: #eaeaea;
-    color: #676767;
+    color: black;
+}
+
+.login_person_icon,
+.login_email_icon,
+.login_lock_icon {
+    color: black;
 }

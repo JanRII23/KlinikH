@@ -3,13 +3,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
-<div id="root"></div>
+<div id="login_root"></div>
 
 @section Styles {
-    <link rel="stylesheet" href="~/loginapp/static/css/main.c1994d94.css" />
+    
+    @if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+    {
+        <link rel="stylesheet" href="http://localhost:3000/static/css/main.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/loginapp/static/css/main.c1994d94.css" />
+    }
 }
 
 @section Scripts {
-    <script src="~/loginapp/static/js/453.a835449d.chunk.js"></script>
-    <script src="~/loginapp/static/js/main.466a040a.js"></script>
+    @if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+    {
+        <script type="module" src="http://localhost:3000/static/js/bundle.js"></script>
+        <script type="module" src="http://localhost:3000/static/js/main.chunk.js"></script>
+        <script type="module" src="http://localhost:3000/static/js/vendors~main.chunk.js"></script>
+    }
+    else
+    {
+         <script src="~/loginapp/static/js/453.a835449d.chunk.js"></script>
+         <script src="~/loginapp/static/js/main.466a040a.js"></script>
+    }
 }

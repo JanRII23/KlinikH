@@ -3,52 +3,52 @@ import "./LoginSignup.css";
 import { MdEmail, MdLock, MdPerson } from "react-icons/md";
 
 const LoginSignup = () => {
-  const [action, setAction] = useState("Sign Up");
+  const [action, setAction] = useState("Register");
 
   return (
-    <div className="container">
-      <div className="header">
-        <div className="text">{action}</div>
-        <div className="underline"></div>
+    <div className="login_container">
+      <div className="login_header">
+        <div className="login_text">{action}</div>
+        <div className="login_underline"></div>
       </div>
-      <div className="inputs">
+      <div className="login_inputs">
         {action === "Login" ? (
           <div></div>
         ) : (
-          <div className="input">
-            <MdPerson size={40} />
+          <div className="login_input">
+            <MdPerson className="login_person_icon" size={40} />
             <input type="text" placeholder="Name" />
           </div>
         )}
 
-        <div className="input">
-          <MdEmail size={40} />
+        <div className="login_input">
+          <MdEmail className="login_email_icon" size={40} />
           <input type="email" placeholder="Email" />
         </div>
-        <div className="input">
-          <MdLock size={40} />
+        <div className="login_input">
+          <MdLock className="login_email_icon" size={40} />
           <input type="password" placeholder="Password" />
         </div>
       </div>
-      {action === "Sign Up" ? (
+      {action === "Register" ? (
         <div></div>
       ) : (
-        <div className="forgot-password">
+        <div className="login_forgot-password">
           Lost Password? <span>Click Here!</span>
         </div>
       )}
 
-      <div className="submit-container">
+      <div className="login_submit-container">
         <div
-          className={action === "Login" ? "submit gray" : "submit"}
+          className={action === "Login" ? "login_submit login_gray" : "login_submit"}
           onClick={() => {
-            setAction("Sign Up");
+            setAction("Register");
           }}
         >
-          Sign Up
+          Register
         </div>
         <div
-          className={action === "Sign Up" ? "submit gray" : "submit"}
+          className={action === "Register" ? "login_submit login_gray" : "login_submit"}
           onClick={() => {
             setAction("Login");
           }}
