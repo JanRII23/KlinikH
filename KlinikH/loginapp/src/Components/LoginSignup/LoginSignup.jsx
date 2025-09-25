@@ -17,7 +17,7 @@ const LoginSignup = () => {
         ) : (
           <div className="login_input">
             <MdPerson className="login_person_icon" size={40} />
-            <input type="text" placeholder="Name" />
+            <input type="text" placeholder="Username" />
           </div>
         )}
 
@@ -26,9 +26,17 @@ const LoginSignup = () => {
           <input type="email" placeholder="Email" />
         </div>
         <div className="login_input">
-          <MdLock className="login_email_icon" size={40} />
+          <MdLock className="login_lock_icon" size={40} />
           <input type="password" placeholder="Password" />
         </div>
+        {action === "Register" ? (
+            <div className="login_input">
+              <MdLock className="login_lock_icon" size={40} />
+              <input type="password" placeholder="Confirm Password" />
+            </div>
+        ) : (
+            <div></div>
+        )}
       </div>
       {action === "Register" ? (
         <div></div>
